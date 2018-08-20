@@ -1,10 +1,22 @@
 " Plugins
 call plug#begin('~/.vim/plugins')
 
-Plug 'https://github.com/jiangmiao/auto-pairs.git'
-Plug 'https://github.com/tpope/vim-endwise.git' 
-Plug 'https://github.com/tpope/vim-ragtag.git'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-endwise' 
+Plug 'tpope/vim-ragtag'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
+Plug 'Valloric/YouCompleteMe'
+Plug 'airblade/vim-gitgutter'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'mattn/emmet-vim'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -40,8 +52,10 @@ set background=dark
 set laststatus=2
 set title
 
-autocmd InsertLeave * colorscheme badwolf
-autocmd InsertEnter * colorscheme seti
+" different colorscheme for insert mode
+autocmd InsertLeave * colorscheme badwolf | call lightline#highlight()
+autocmd InsertEnter * colorscheme seti | call lightline#highlight()
+set noshowmode
 
 set foldmethod=indent
 set nofoldenable
@@ -64,6 +78,7 @@ set lazyredraw
 " subfolder search
 set path+=**
 set wildignore+=.pyc,.swp
+map <C-p> :Files<CR>
 
 " swap directory
 set dir=~/.vim/cache
